@@ -14,7 +14,6 @@ class App extends Component {
       saveClick = () => {},
       undoClick = () => {}
     } = this.props;
-    console.log(data);
     return (
       <div>
         <input type="text" name="newTrack" ref={el => (this.input = el)} />
@@ -51,13 +50,19 @@ class App extends Component {
                   </td>
                   <td>
                     <Baton
-                      onClick={() => deleteClick(key)}
+                      onClick={() => {
+                        this.inpval.splice(key, 1);
+                        deleteClick(key);
+                      }}
                       color="rgb(252, 15, 29)"
                       children="Delete"
                       display={i.delete}
                     />
                     <Baton
-                      onClick={() => editClick(key)}
+                      onClick={() => {
+                        editClick(key);
+                        this.inpval[key].value = i.text;
+                      }}
                       color="rgb(172, 180, 32)"
                       children="Edit"
                       display={i.edit}
