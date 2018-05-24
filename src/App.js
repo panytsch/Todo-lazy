@@ -58,7 +58,7 @@ class App extends Component {
                     />
                     <Baton
                       onClick={() => editClick(key)}
-                      color="rgb(252, 15, 29)"
+                      color="rgb(172, 180, 32)"
                       children="Edit"
                       display={i.edit}
                     />
